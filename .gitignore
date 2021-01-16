@@ -3,3 +3,7 @@
 /.gradle/6.7/*
 /.gradle/*
 /build/tmp/*
+/cake-manager.iml
+/gradlew
+/gradlew.bat
+/local.properties
