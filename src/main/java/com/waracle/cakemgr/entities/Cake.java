@@ -1,4 +1,4 @@
-package com.waracle.entities;
+package com.waracle.cakemgr.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

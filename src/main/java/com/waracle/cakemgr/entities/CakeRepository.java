@@ -1,4 +1,4 @@
-package com.waracle.entities;
+package com.waracle.cakemgr.entities;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package com.waracle.entities;
+package com.waracle.cakemgr.entities;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
