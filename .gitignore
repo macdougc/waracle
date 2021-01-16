@@ -1,2 +1,5 @@
 /target
 /.idea
+/.gradle/6.7/*
+/.gradle/*
+/build/tmp/*
