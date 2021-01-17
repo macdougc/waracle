@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-class LoadDatabase {
+public class LoadDatabase {
 
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
@@ -15,8 +15,8 @@ class LoadDatabase {
     CommandLineRunner initDatabase(CakeRepository repository) {
 
         return args -> {
-            log.info("Preloading " + repository.save(new Cake("Bilbo", "Baggins", "bilbo@lotr.com")));
-            log.info("Preloading " + repository.save(new Cake("Frodo", "Baggins", "frodo@lotr.com")));
+            log.info("Preloading " + repository.save(new Cake("Victoria Sponge", "light sponge cake with cream and jam", "image1.jpg")));
+            log.info("Preloading " + repository.save(new Cake("Black Forest Gateau", "chocolate sponge with cherry flavour", "image2.jpg")));
         };
     }
 }

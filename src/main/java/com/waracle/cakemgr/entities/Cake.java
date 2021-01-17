@@ -10,7 +10,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @org.hibernate.annotations.Entity(dynamicUpdate = true)
-@Table(name = "Employee", uniqueConstraints = {@UniqueConstraint(columnNames = "ID"), @UniqueConstraint(columnNames = "EMAIL")})
+@Table(name = "Cake", uniqueConstraints = {@UniqueConstraint(columnNames = "ID"), @UniqueConstraint(columnNames = "TITLE")})
 public class Cake {
 
     private static final long serialVersionUID = -1798070786993154676L;
@@ -18,56 +18,56 @@ public class Cake {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", unique = true, nullable = false)
-    private Long id;
+    private Long cakeId;
 
-    @Column(name = "EMAIL", unique = true, nullable = false, length = 100)
-    private String email;
+    @Column(name = "TITLE", unique = true, nullable = false, length = 100)
+    private String title;
 
-    @Column(name = "FIRST_NAME", unique = false, nullable = false, length = 100)
-    private String firstName;
+    @Column(name = "DESCRIPTION", unique = false, nullable = false, length = 100)
+    private String description;
 
-    @Column(name = "LAST_NAME", unique = false, nullable = false, length = 300)
-    private String lastName;
+    @Column(name = "IMAGE", unique = false, nullable = false, length = 300)
+    private String image;
 
-    Cake() {}
+    public Cake() {}
 
-    Cake(final String firstName, final String lastName, final String email) {
+    Cake(final String title, final String description, final String image) {
 
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+        this.description = description;
+        this.image = image;
+        this.title = title;
     }
 
-    public Long getId() {
-        return this.id;
+    public Long getCakeId() {
+        return this.cakeId;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTitle() {
+        return title;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getDescription() {
+        return description;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getImage() {
+        return image;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Override
     public String toString() {
-        return "Cake{" + "id=" + this.id + ", name='" + this.firstName + ' ' + this.lastName + '\'' + ", email='" + this.email + '\'' + '}';
+        return "Cake{" + "id=" + this.cakeId + ", title='" + this.title + + '\'' + ", description='" + this.description + '\'' + ", email='" + this.title + '\'' + '}';
     }
 }
