@@ -1,3 +1,18 @@
+Notes from Craig MacDougall
+=====================================
+
+I have moved the application to spring boot and added an MVC controller for the human interactions, with a REST
+controller for interactions via a client like Postman.
+I used JPA as a repository instead of the existing Hibernate class.
+I have added unit tests for the controllers and the service class.
+I added a login via GitHub as an OAuth2 login.
+
+I run the server using 'mvnw clean spring-boot:run' in a terminal (I am on Windows). It can also be run by directly running the CakeMgrApplication class.
+
+Going to http://localhost:8080/ will give the list of cakes. There is a button for adding a new cake.
+Going to http://localhost:8080/cakes or issuing a GET request will give the list of cakes in JSON format.
+Sending a POST request to http://localhost:8080/cakes with correct JSON for a cake will add that cake, or give the appropriate error.
+
 Cake Manager Micro Service (fictitious)
 =======================================
 
