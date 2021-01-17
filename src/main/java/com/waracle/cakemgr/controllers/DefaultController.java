@@ -1,32 +1,30 @@
 package com.waracle.cakemgr.controllers;
 
-import java.util.List;
-
 import com.waracle.cakemgr.entities.Cake;
-import com.waracle.cakemgr.entities.CakeRepository;
-import org.springframework.http.HttpStatus;
+import com.waracle.cakemgr.services.CakeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-class DefaultController {
+public class DefaultController {
 
-    private final CakeRepository repository;
+    public static final String SAVE_SUCCESS_MESSAGE = "The cake was saved successfully.";
+    public static final String SAVE_ERROR_MESSAGE = "The cake could not be saved. Please check the title is unique and the other data is correct.";
 
-    DefaultController(CakeRepository repository) {
-        this.repository = repository;
+    @Autowired
+    private final CakeService _cakeService;
+
+    DefaultController(CakeService cakeService) {
+        _cakeService = cakeService;
     }
 
     @GetMapping("/")
     public String showAll(Model model) {
-        model.addAttribute("cakes", repository.findAll());
+        model.addAttribute("cakes", _cakeService.getCakes());
         return "cakeList";
     }
 
@@ -39,15 +37,15 @@ class DefaultController {
     @PostMapping("/addCake")
     public String addCakeSubmit(@ModelAttribute Cake cake, Model model) {
         try {
-            repository.save(cake);
+            _cakeService.saveCake(cake);
         }
         catch (Exception exception) {
-            model.addAttribute("message", "The cake could not be saved. Please check the title is unique and the other data is correct.");
+            model.addAttribute("message", SAVE_ERROR_MESSAGE);
             model.addAttribute("cake", cake);
             return "addCake";
         }
 
-        model.addAttribute("message", "The cake was saved successfully");
+        model.addAttribute("message", SAVE_SUCCESS_MESSAGE);
         return addCakeForm(model);
     }
 

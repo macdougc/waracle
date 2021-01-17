@@ -31,7 +31,7 @@ public class Cake {
 
     public Cake() {}
 
-    Cake(final String title, final String description, final String image) {
+    public Cake(final String title, final String description, final String image) {
 
         this.description = description;
         this.image = image;
