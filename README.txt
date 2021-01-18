@@ -5,7 +5,6 @@ I have moved the application to spring boot and added an MVC controller for the 
 controller for interactions via a client like Postman.
 I used JPA as a repository instead of the existing Hibernate class.
 I have added unit tests for the controllers and the service class.
-I added a login via GitHub as an OAuth2 login.
 
 I run the server using 'mvnw clean spring-boot:run' in a terminal (I am on Windows). It can also be run by directly running the CakeMgrApplication class.
 
